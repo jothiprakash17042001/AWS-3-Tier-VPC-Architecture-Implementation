@@ -1,0 +1,46 @@
+  }
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    background: #fff;
+    border-color: #e67e22;
+    box-shadow: 0 0 8px rgba(230, 126, 34, 0.4);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #d35400;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#statusMessage {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    min-height: 20px;
+}
+
