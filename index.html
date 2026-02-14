@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Table Reservation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <div class="reservation-container">
+        <div class="form-header">
+            <h2>Reserve A Table</h2>
+            <p>Experience exquisite dining with us</p>
+        </div>
+
+        <form id="bookingForm">
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <input type="date" id="date" required>
+                </div>
+                <div class="input-group">
+                    <input type="time" id="time" required>
+                </div>
+            </div>
+            <button type="submit" id="submitBtn">Book Now</button>
+        </form>
+        <div id="statusMessage"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
