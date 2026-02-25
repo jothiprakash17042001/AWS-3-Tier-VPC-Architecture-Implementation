@@ -1,41 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gourmet Table Reservation</title>
+    <title>Prakash Restaurant</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background-overlay"></div>
 
-    <div class="reservation-container">
-        <div class="form-header">
-            <h2>Reserve A Table</h2>
-            <p>Experience exquisite dining with us</p>
-        </div>
+<div class="overlay">
+<div class="container">
 
-        <form id="bookingForm">
-            <div class="input-group">
-                <input type="text" id="name" placeholder="Full Name" required>
-            </div>
-            <div class="input-group">
-                <input type="email" id="email" placeholder="Email Address" required>
-            </div>
-            <div class="row">
-                <div class="input-group">
-                    <input type="date" id="date" required>
-                </div>
-                <div class="input-group">
-                    <input type="time" id="time" required>
-                </div>
-            </div>
-            <button type="submit" id="submitBtn">Book Now</button>
-        </form>
-        <div id="statusMessage"></div>
+    <!-- REGISTER SECTION -->
+    <div id="registerSection" class="card">
+        <h2>Create Account</h2>
+        <input type="text" id="regName" placeholder="Full Name">
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="password" id="regPassword" placeholder="Password">
+        <button id="registerBtn">Register</button>
+        <p id="registerMessage"></p>
+        <p class="switch">Already have account? <span id="goLogin">Login</span></p>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- LOGIN SECTION -->
+    <div id="loginSection" class="card" style="display:none;">
+        <h2>Welcome Back</h2>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button id="loginBtn">Login</button>
+        <p id="loginMessage"></p>
+    </div>
+
+    <!-- BOOKING SECTION -->
+    <div id="bookingSection" class="card" style="display:none;">
+        <h2>Reserve a Table</h2>
+
+        <form id="bookingForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <button type="submit">Book Now</button>
+            <p id="bookingMessage"></p>
+        </form>
+    </div>
