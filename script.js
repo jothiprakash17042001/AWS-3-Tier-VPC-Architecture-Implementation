@@ -1,47 +1,48 @@
+document.addEventListener("DOMContentLoaded", function () {
 
-     // 3. Collect form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value
-    };
+    const registerSection = document.getElementById("registerSection");
+    const loginSection = document.getElementById("loginSection");
+    const bookingSection = document.getElementById("bookingSection");
 
-    /** * 4. Connection Logic
-     * If using Nginx as a reverse proxy (recommended), use "/api/reserve"
-     * If connecting directly to the App Server, use "http://<APP_PRIVATE_IP>:5000/api/reserve"
-     */
-    const APP_SERVER_URL = "/api/reserve";
+    const registerBtn = document.getElementById("registerBtn");
+    const loginBtn = document.getElementById("loginBtn");
 
-    try {
-        const response = await fetch(APP_SERVER_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
+    const goLogin = document.getElementById("goLogin");
 
-        const result = await response.json();
+    const registerMessage = document.getElementById("registerMessage");
+    const loginMessage = document.getElementById("loginMessage");
 
-        // 5. Handle success or error messages
-        if (response.ok) {
-            status.innerText = "✓ " + (result.message || "Reservation successful!");
-            status.style.color = "#4BB543"; // Success Green
-            document.getElementById('bookingForm').reset(); // Clear the form
-        } else {
-            status.innerText = "✕ " + (result.error || "Failed to save reservation.");
-            status.style.color = "#ff3333"; // Error Red
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingMessage = document.getElementById("bookingMessage");
+
+
+    // Switch to login
+    goLogin.addEventListener("click", function(){
+        registerSection.style.display = "none";
+        loginSection.style.display = "block";
+    });
+
+
+    // REGISTER
+    registerBtn.addEventListener("click", function(){
+
+        const name = document.getElementById("regName").value;
+        const email = document.getElementById("regEmail").value;
+        const password = document.getElementById("regPassword").value;
+
+        if(!name || !email || !password){
+            registerMessage.innerText = "Fill all fields";
+            registerMessage.style.color = "red";
+            return;
         }
 
-    } catch (err) {
-        // 6. Handle network/connection errors
-        status.innerText = "✕ Error: Cannot reach the server. Check your AWS Security Groups.";
-        status.style.color = "#ff3333";
-        console.error("Connection Error:", err);
-    } finally {
-        // 7. Reset button state
-        submitBtn.innerText = "Book Now";
-        submitBtn.disabled = false;
-    }
-});
+        const user = { name, email, password };
+        localStorage.setItem("user", JSON.stringify(user));
+
+        registerMessage.innerText = "Account Created Successfully!";
+        registerMessage.style.color = "lightgreen";
+
+        setTimeout(() => {
+            registerSection.style.display = "none";
+            loginSection.style.display = "block";
+                                                                                     
